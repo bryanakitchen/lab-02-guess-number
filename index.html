@@ -32,17 +32,19 @@
                 <p>Please enter a number below to begin guessing.</p> 
             </div>
             <div>
-                <input type="user-input">
+                <input id='user-input' type='number'></input>
                 <button id='start-button'>Submit</button>
-                <span id='guesses-remaining'></span>
-                <span id='high-or-low'></span>
-                <span id='win-loss'></span>
+            </div>
+            <div>                
+                <span id='message-box'></span>
+                You have <span id='guesses-remaining'>4</span> guesses left.
+                You have won <span id='win-loss'></span> times.
             </div>
             
         </section>
     </main>
     <footer>
-        <div class="copy gutter-right">&copy; 2020 Alchemy Code Lab</div>
+        <div class="copy gutter-right"></div>
     </footer>
 
     <script type="module" src="app.js"></script>
