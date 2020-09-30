@@ -17,7 +17,7 @@ startButton.addEventListener('click', () => {
     
     totalGuesses--;
     winLoss.textContent = totalWin;
- 
+    
     guessesRemaining.textContent = totalGuesses;
     console.log(totalGuesses, totalWin, correctAnswer);
     
@@ -27,8 +27,10 @@ startButton.addEventListener('click', () => {
         winLoss.textContent = totalWin;
         totalGuesses = 4;
         guessesRemaining.textContent = totalGuesses;
+        reset();
     } else if (compareNumbers(userNumber, correctAnswer) === -1) {
         messageBox.textContent = 'Your guess is too low. Please try again';
+        
     } else if (compareNumbers(userNumber, correctAnswer) === 1) {
         messageBox.textContent = 'Your guess is too high. Keep trying!';
     }
@@ -37,10 +39,16 @@ startButton.addEventListener('click', () => {
         messageBox.textContent = 'Sorry. You\'re out of guesses. Better luck next time!';
         startButton.disabled = true;
     }
+
+    userInput.value = '';
 });
 
-resetButton.addEventListener('click', () => {
+function reset() {
     correctAnswer = Math.floor(Math.random() * 20);
     totalGuesses = 4;
     guessesRemaining.textContent = totalGuesses;
-})
+    userInput.value = '';
+    startButton.disabled = false;
+}
+
+resetButton.addEventListener('click', reset);
